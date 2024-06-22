@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/Controller/logicwithgetx.dart';
+import 'package:getx/View/result.dart';
 
 class GetxLeason extends StatelessWidget {
   const GetxLeason({super.key});
@@ -44,7 +45,23 @@ class GetxLeason extends StatelessWidget {
             ElevatedButton(onPressed: () {
              hitGetx.startPoint.value = 0;
             },
-             child:const Text('Reset'))
+             child:const Text('Reset')),
+            
+            const SizedBox(height: 20,),
+             
+             ElevatedButton(onPressed: () {
+                //Navigator.push(context, //? Old ways
+                //MaterialPageRoute(builder:
+                // (context)=>  Result(result: hitGetx.startPoint.value,)
+                // )
+                //);
+               
+               //! New way to implement page routing using Getx
+                  Get.to(()=>
+                  Result(result: hitGetx.startPoint.value)
+                );
+              },
+              child:const Text('Go to Result Page'))
             
           ],
         ),
