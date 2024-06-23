@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/Controller/logicwithgetx.dart';
-import 'package:getx/View/result.dart';
+import 'package:getx/View/Getx Practice/logicwithgetx.dart';
+import 'package:getx/View/Getx Practice/result.dart';
 
 class GetxLeason extends StatelessWidget {
   const GetxLeason({super.key});
@@ -43,7 +43,14 @@ class GetxLeason extends StatelessWidget {
               ],
             ),
             ElevatedButton(onPressed: () {
-             hitGetx.startPoint.value = 0;
+             hitGetx.startPoint.value =0;
+             //Get.snackbar('Done', 'Counting Start Its Owne Point');
+            Get.defaultDialog(
+              title: 'Dialog',
+              textCancel:'NO',
+              textConfirm:'YES',
+              content: const Text('DO YOU WANT TO RESET?')
+            );
             },
              child:const Text('Reset')),
             
@@ -58,10 +65,33 @@ class GetxLeason extends StatelessWidget {
                
                //! New way to implement page routing using Getx
                   Get.to(()=>
-                  Result(result: hitGetx.startPoint.value)
+                  const Result(),
+                  
+                  //* Easy way data pass
+                  arguments:{
+                    
+                    'Name':'Sohid Chowdhury',
+                    'Work_Status':'Active',
+                    'Counter_value':hitGetx.startPoint.value,
+                    'isPassed': true,
+                 }
+
                 );
               },
-              child:const Text('Go to Result Page'))
+              child:const Text('Go to Result Page')),
+          const  SizedBox( height: 15,),
+
+          const SizedBox(height: 60,
+             child:TextField(
+                obscureText: false,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                  
+                  ),
+                  labelText: 'Idea'
+                ),
+               ),
+           )
             
           ],
         ),
