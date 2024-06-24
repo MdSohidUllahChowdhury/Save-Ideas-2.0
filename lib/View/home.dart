@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:getx/View/bar.dart';
-import 'package:getx/View/yournote.dart';
+import 'package:get/get.dart';
+import 'package:getx/Controller/bar.dart';
+import 'package:getx/Controller/yournote.dart';
+import 'package:getx/View/addnote.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -26,13 +28,13 @@ class HomePage extends StatelessWidget {
              const Bar(),
              const SizedBox(height: 20,),
              
-             Expanded(
+              Expanded(
                child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                  child: Column(
                   children: [
                     ListView.builder(
-                      itemCount: 10,
+                      itemCount: 3,
                       shrinkWrap: true,
                       primary: true,
                       itemBuilder: (context, index) {
@@ -41,11 +43,16 @@ class HomePage extends StatelessWidget {
                   ],
                  ),
                ),
-             )
+             ),
                 
           ],
         ),
       ),
+      floatingActionButton:
+       FloatingActionButton(onPressed:() => Get.to(const AddNote()),
+       backgroundColor:const Color.fromARGB(255, 230, 197, 197),
+       shape:const CircleBorder(),
+       child:const Icon(Icons.add,size: 30,color: Colors.black,),),
     );
   }
 }

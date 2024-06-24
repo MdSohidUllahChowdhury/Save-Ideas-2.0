@@ -35,10 +35,12 @@ class YourNote extends StatelessWidget {
         ),
 
         subtitle: const Column(
+          
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Flutter is the best framework'),
+            Text(maxLines: 1, overflow: TextOverflow.ellipsis,
+            'Flutter is the best framework for building cross app. It can build android and ios app easy ways.',),
             SizedBox(height:2,),
 
             Text('12:36 PM'),
