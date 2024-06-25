@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/Controller/bar.dart';
-import 'package:getx/Controller/yournote.dart';
+import 'package:getx/Controller/Coustom Widget/bar.dart';
+import 'package:getx/Controller/Coustom Widget/yournote.dart';
+import 'package:getx/Controller/noteController.dart';
 import 'package:getx/View/addnote.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,6 +10,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+   final controller = Get.put(NoteController());
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -23,24 +27,35 @@ class HomePage extends StatelessWidget {
 
       body: Padding(
         padding:  const EdgeInsets.all(10.0),
-        child:  Column(mainAxisAlignment: MainAxisAlignment.start,
+        child:  Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
              const Bar(),
              const SizedBox(height: 20,),
-             
               Expanded(
-               child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                 child: Column(
-                  children: [
-                    ListView.builder(
-                      itemCount: 3,
-                      shrinkWrap: true,
-                      primary: true,
-                      itemBuilder: (context, index) {
-                        return const YourNote();
-                      },)
-                  ],
+               child: Obx( //* Obx shows the initial change on page.
+                 ()=> SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                   child: Column(
+                    children: [
+                      controller.note.isEmpty? 
+                      const Center(
+                        child: Text('Create Your Note to Save'),
+                      ) :
+                      ListView.builder(
+                        itemCount:controller.note.length,
+                        shrinkWrap: true,
+                        primary: false,
+                        itemBuilder: (context, index) {
+                          final note = controller.note[index];
+                          return 
+                          YourNote(
+                            title: note.title,
+                             description: note.describe
+                             );
+                        },)
+                    ],
+                   ),
                  ),
                ),
              ),
@@ -48,6 +63,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+      
       floatingActionButton:
        FloatingActionButton(onPressed:() => Get.to(const AddNote()),
        backgroundColor:const Color.fromARGB(255, 230, 197, 197),

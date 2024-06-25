@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 class YourNote extends StatelessWidget {
-  const YourNote({super.key});
+  final String title;
+  final String description;
+  const YourNote({super.key, required this.title, required this.description});
 
   @override
   Widget build(BuildContext context) {
+    
     return Container(
       height: 95,
       width: 325,
@@ -22,7 +25,8 @@ class YourNote extends StatelessWidget {
         title: Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             
-            const Text('Testing the note app',style: TextStyle(
+             Text(title,
+              style:const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w700,
             ),
@@ -34,16 +38,19 @@ class YourNote extends StatelessWidget {
           ],
         ),
 
-        subtitle: const Column(
+        subtitle:  Column(
           
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(maxLines: 1, overflow: TextOverflow.ellipsis,
-            'Flutter is the best framework for building cross app. It can build android and ios app easy ways.',),
-            SizedBox(height:2,),
+            Text(
+              description,
+            maxLines: 1, 
+            overflow: TextOverflow.ellipsis,
+            ),
+          const  SizedBox(height:2,),
 
-            Text('12:36 PM'),
+           const Text('12:36 PM'),
 
           ],
         ),
