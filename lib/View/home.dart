@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/Controller/Coustom Widget/bar.dart';
-import 'package:getx/Controller/Coustom Widget/yournote.dart';
+import 'package:getx/Controller/Coustom Widget/note_card.dart';
 import 'package:getx/Controller/noteController.dart';
 import 'package:getx/View/addnote.dart';
 
@@ -26,22 +26,24 @@ class HomePage extends StatelessWidget {
       ),
 
       body: Padding(
-        padding:  const EdgeInsets.all(10.0),
-        child:  Column(
+        padding: const EdgeInsets.all(10.0),
+         child:  Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
              const Bar(),
-             const SizedBox(height: 20,),
+             
+             const SizedBox(height: 25),
+              
               Expanded(
-               child: Obx( //* Obx shows the initial change on page.
-                 ()=> SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
+               child: Obx(()=>SingleChildScrollView(
+                  //scrollDirection: Axis.vertical,
                    child: Column(
                     children: [
-                      controller.note.isEmpty? 
-                      const Center(
-                        child: Text('Create Your Note to Save'),
-                      ) :
+                      controller.note.isEmpty ? 
+                       const Center(
+                       child: Text('Create Your Note to Save'),
+                       ) 
+                       :
                       ListView.builder(
                         itemCount:controller.note.length,
                         shrinkWrap: true,
@@ -51,9 +53,11 @@ class HomePage extends StatelessWidget {
                           return 
                           YourNote(
                             title: note.title,
-                             description: note.describe
+                             description: note.describe,
+                             addtime: note.addtime,
                              );
-                        },)
+                        },
+                        )
                     ],
                    ),
                  ),

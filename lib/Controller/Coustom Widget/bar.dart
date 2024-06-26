@@ -5,16 +5,26 @@ class Bar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return 
+    Row(
+       mainAxisAlignment: MainAxisAlignment.spaceBetween,
     
       children: [
-        IconButton(onPressed:() {}, icon:const Icon(Icons.menu_sharp)),
+        
+        IconButton(
+          onPressed:(){},
+          icon:const Icon(Icons.menu_sharp)),
         
         Row(
           children: [
-            IconButton(onPressed:(){} , icon: const Icon(Icons.search)),
-             IconButton(onPressed:(){} , icon: const Icon(Icons.more_vert_outlined)),
-          ],
+            IconButton(
+              onPressed:(){}, 
+              icon: const Icon(Icons.search)),
+
+            IconButton(
+              onPressed:(){},
+              icon: const Icon(Icons.more_vert_outlined)),
+                  ],
         )
 
       ],

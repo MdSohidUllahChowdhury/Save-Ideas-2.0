@@ -12,7 +12,7 @@ class AddNote extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final controller = NoteController();
+    final controller = Get.put(NoteController());
     final  titleController = TextEditingController();
     final  descriptionController = TextEditingController();
 
@@ -34,7 +34,7 @@ class AddNote extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             TextField(
+             TextFormField(
               controller: titleController,
               style:const TextStyle(
                 fontSize: 22,
@@ -50,7 +50,7 @@ class AddNote extends StatelessWidget {
             ),
 
              Expanded(
-              child: TextField(
+              child: TextFormField(
                 controller: descriptionController ,
                 maxLines: 50,
                 minLines: 50,

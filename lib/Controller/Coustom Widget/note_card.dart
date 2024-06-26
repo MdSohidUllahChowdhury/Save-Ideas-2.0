@@ -3,7 +3,13 @@ import 'package:flutter/material.dart';
 class YourNote extends StatelessWidget {
   final String title;
   final String description;
-  const YourNote({super.key, required this.title, required this.description});
+  final DateTime addtime;
+  
+  const YourNote({super.key,
+  
+  required this.title,
+  required this.description, 
+  required this.addtime});
 
   @override
   Widget build(BuildContext context) {
@@ -12,45 +18,49 @@ class YourNote extends StatelessWidget {
       height: 95,
       width: 325,
       margin:const EdgeInsets.only(bottom: 8),
+      
       decoration: BoxDecoration(
         color: const Color.fromARGB(255, 230, 197, 197),
         borderRadius: BorderRadius.circular(26),
-       
       ),
-      child: ListTile(
-        horizontalTitleGap: 0,
-        titleAlignment:  ListTileTitleAlignment.top,
-        
 
-        title: Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+      child: ListTile(
+        horizontalTitleGap:0,
+        titleAlignment:  ListTileTitleAlignment.top,
+
+        title:Row(
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          
+           children: [
             
              Text(title,
               style:const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w700,
-            ),
-            ),
+               ),
+              ),
 
-            IconButton(onPressed:() {
-              
-            },icon:const Icon(Icons.delete_outline))
+             IconButton(
+              onPressed:(){},
+              icon:const Icon(Icons.delete_outline)),
+          
           ],
         ),
 
-        subtitle:  Column(
-          
+        subtitle:Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
+          
           children: [
+            
             Text(
               description,
-            maxLines: 1, 
-            overflow: TextOverflow.ellipsis,
-            ),
-          const  SizedBox(height:2,),
+              maxLines: 1, 
+              overflow: TextOverflow.ellipsis,
+                ),
+          const  SizedBox(height:2),
 
-           const Text('12:36 PM'),
+            Text(addtime.toString()),
 
           ],
         ),
