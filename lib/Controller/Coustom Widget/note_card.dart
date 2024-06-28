@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class YourNote extends StatelessWidget {
   final String title;
@@ -16,7 +17,7 @@ class YourNote extends StatelessWidget {
     
     return Container(
       height: 95,
-      width: 325,
+      width: Get.width*9,
       margin:const EdgeInsets.only(bottom: 8),
       
       decoration: BoxDecoration(

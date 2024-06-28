@@ -5,6 +5,7 @@ import 'package:getx/Controller/Coustom Widget/note_card.dart';
 import 'package:getx/Controller/noteController.dart';
 import 'package:getx/View/addnote.dart';
 
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -48,8 +49,10 @@ class HomePage extends StatelessWidget {
                         itemCount:controller.note.length,
                         shrinkWrap: true,
                         primary: false,
+                        reverse: true,
                         itemBuilder: (context, index) {
                           final note = controller.note[index];
+                          
                           return 
                           YourNote(
                             title: note.title,
@@ -63,7 +66,8 @@ class HomePage extends StatelessWidget {
                  ),
                ),
              ),
-                
+            
+            
           ],
         ),
       ),

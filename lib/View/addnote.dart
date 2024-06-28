@@ -75,15 +75,17 @@ class AddNote extends StatelessWidget {
                       controller.mainNoteModel(NoteModel(
                         title: titleController.text, 
                         describe:descriptionController.text,
-                         addtime: DateTime.now()));
+                         addtime: DateTime.now()
+                         )
+                         );
                       
                       Get.back(); 
                     }
                   
                   },
              child: Container(
-                height: 45,
-                width: 325,
+                height:Get.height*.065,
+                width: Get.width*.9,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 230, 197, 197),
                   borderRadius: BorderRadius.circular(16)
