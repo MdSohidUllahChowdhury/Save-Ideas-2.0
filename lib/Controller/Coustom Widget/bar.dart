@@ -13,13 +13,19 @@ class Bar extends StatelessWidget {
       children: [
         
         IconButton(
-          onPressed:(){},
+          onPressed:(){
+             Get.snackbar('Working',
+                 'Work is on for this feature');
+          },
           icon:const Icon(Icons.menu_sharp)),
         
         Row(
           children: [
             IconButton(
-              onPressed:(){}, 
+              onPressed:(){
+                Get.snackbar('Working',
+                 'Work is on for this feature');
+              }, 
               icon: const Icon(Icons.search)),
 
             IconButton(
