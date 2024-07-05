@@ -16,48 +16,47 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      
       appBar: AppBar(
         title:const Text('YOUR NOTES',
-        style: TextStyle(
-          fontWeight: FontWeight.w900,
-          letterSpacing: 3,
-          fontSize: 20),),
+         style: TextStyle(
+           fontWeight: FontWeight.w900,
+           letterSpacing: 3,
+           fontSize: 20),
+           ),
         centerTitle: true,
-
       ),
 
       body: Padding(
         padding: const EdgeInsets.all(10.0),
-         child:  Column(
+         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: [
+           children: [
              const Bar(),
              
              const SizedBox(height: 25),
               
               Expanded(
-               child: Obx(()=>SingleChildScrollView(
-                  //scrollDirection: Axis.vertical,
+               child: Obx(
+                ()=>SingleChildScrollView(
                    child: Column(
                     children: [
                       controller.note.isEmpty ? 
-                       const Center(
-                       child: Text('Create Your Note to Save'),
-                       ) 
+                       const Center(child: Text('Create Your Note to Save'),) 
                        :
-                      ListView.builder(
+                       ListView.builder(
                         itemCount:controller.note.length,
                         shrinkWrap: true,
                         primary: false,
                         reverse: true,
                         itemBuilder: (context, index) {
-                          final note = controller.note[index];
-                          
+                        final note = controller.note[index];
                           return 
                           YourNote(
                             title: note.title,
                              description: note.describe,
                              addtime: note.addtime,
+                             indexNo: index,
                              );
                         },
                         )
@@ -65,9 +64,7 @@ class HomePage extends StatelessWidget {
                    ),
                  ),
                ),
-             ),
-            
-            
+             ),      
           ],
         ),
       ),

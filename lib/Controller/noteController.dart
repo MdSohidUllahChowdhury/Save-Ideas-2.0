@@ -7,9 +7,14 @@ class NoteController extends GetxController{
 
 RxList<NoteModel> note = <NoteModel>[].obs;
   
-  mainNoteModel (NoteModel noteData)
+  mainNoteModel(NoteModel noteData)
   {
     note.add(noteData);
+    update();
+  }
+
+  deleteNote(int index){
+    note.removeAt(index);
     update();
   }
 

@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx/Controller/noteController.dart';
 
 class YourNote extends StatelessWidget {
   final String title;
   final String description;
   final DateTime addtime;
+  final int indexNo;
   
   const YourNote({super.key,
   
   required this.title,
   required this.description, 
-  required this.addtime});
+  required this.addtime,
+  required this.indexNo});
 
   @override
   Widget build(BuildContext context) {
-    
+    final controller = Get.put(NoteController());
     return Container(
       height: 95,
       width: Get.width*9,
@@ -42,7 +45,11 @@ class YourNote extends StatelessWidget {
               ),
 
              IconButton(
-              onPressed:(){},
+              onPressed:(){
+                controller.deleteNote(indexNo);
+                Get.snackbar('Deleted',
+                 'Your note has been deleted');
+              },
               icon:const Icon(Icons.delete_outline)),
           
           ],
