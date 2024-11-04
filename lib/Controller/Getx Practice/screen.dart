@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/View/Getx Practice/logicwithgetx.dart';
-import 'package:getx/View/Getx Practice/result.dart';
+import 'package:save_idea/Controller/Getx%20Practice/logicwithgetx.dart';
+import 'package:save_idea/Controller/Getx%20Practice/result.dart';
 
 class GetxLeason extends StatelessWidget {
   const GetxLeason({super.key});
@@ -43,7 +43,7 @@ class GetxLeason extends StatelessWidget {
               ],
             ),
             ElevatedButton(onPressed: () {
-             hitGetx.startPoint.value =0;
+             hitGetx.startPoint.value = 0;
              //Get.snackbar('Done', 'Counting Start Its Owne Point');
             Get.defaultDialog(
               title: 'Dialog',
