@@ -4,22 +4,18 @@ A modern and intuitive note-taking application built with Flutter, designed to h
 
 ## 📸 Screenshots
 
---
-
 ![image alt](https://github.com/MdSohidUllahChowdhury/Save-Ideas-2.0/blob/master/asset/screens.png)
-
---
 
 
 ## ✨ Features
 
 - **📝 Create, Read, Update, Delete (CRUD):** Full note management capabilities.
 - **🎨 Colorful Notes:** Each note is assigned a random color from a beautiful palette for a vibrant and organized look.
-- ** staggered Grid Layout:** A dynamic and visually appealing staggered grid view for your notes, similar to Google Keep.
-- ** Intuitive Gestures:** Swipe-to-delete functionality for quick and easy note removal.
-- ** Powerful Search:** Easily find your notes with the built-in search functionality.
-- ** Share & Duplicate:** Share your notes with other apps or create duplicates with a single tap.
-- ** Local Storage:** Your notes are securely stored on your device using Hive.
+- **Staggered Grid Layout:** A dynamic and visually appealing staggered grid view for your notes, similar to Google Keep.
+- **Intuitive Gestures:** Swipe-to-delete functionality for quick and easy note removal.
+- **Powerful Search:** Easily find your notes with the built-in search functionality.
+- **Share & Duplicate:** Share your notes with other apps or create duplicates with a single tap.
+- **Local Storage:** Your notes are securely stored on your device using Hive.
 
 ## 🚀 Getting Started
 
